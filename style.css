@@ -1,0 +1,26 @@
+html{
+    font-family: 'Inter', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar{
+    flex-basis: 33.33%;
+}
+
+.main-chat{
+    background-image: url(img/boolzap-wp.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-grow: 1;
+}
