@@ -19,9 +19,9 @@
             <div class="sidebar-top">
                 <div class="profile">
                     <div class="img-wrapper">
-                        <img src="img/R.jpg" alt="">
+                        <img v-bind:src="userImage" alt="">
                     </div>
-                    <span>Alessandro</span>
+                    <span>{{ userName }}</span>
                 </div>
                 <div class="chat-icons">
                     <i class="fa-solid fa-circle-notch"></i>
@@ -50,17 +50,34 @@
                         </div>
                         <div class="chat-description">
                             <span>{{ chat.name }}</span>
+                            <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                             <span>{{ chat.messages[chat.messages.length - 1].text }}</span>
                         </div>
                         <div class="message-data">
+                            <!-- Prendo dall'array la data dell'ultimo messaggio -->
                             <span>{{ chat.messages[chat.messages.length - 1].date }}</span>
                         </div>
                     </li>
                 </ul>
             </div>
         </aside>
-        <div class="main-chat">
 
+        <div class="main-chat">
+            <div class="main-chat-top">
+
+            </div>
+            <div class="main-chat-body">
+
+            </div>
+            <div class="main-chat-text">
+                <div class="emoticon-icon">
+                    <i class="fa-solid fa-face-smile"></i>
+                </div>
+                <input type="text" id="text" placeholder="Scrivi un messaggio">
+                <div class="mic-icon">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
         </div>
     </div>
 

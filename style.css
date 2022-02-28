@@ -15,11 +15,17 @@ img{
     object-position: center;
 }
 
+aside{
+    border-right: 1px solid #B1B1B1;
+}
+
 #app{
     display: flex;
     height: 100vh;
 }
 
+
+/* ----------------SIDEBAR---------------------------- */
 .sidebar{
     flex-basis: 33.33%;
 }
@@ -128,8 +134,8 @@ img{
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 0 5px 0 1px;
     position: relative;
+    padding-left: 12px;
 }
 
 .private-chat .chat-description{
@@ -157,4 +163,43 @@ img{
 .chat-list .private-chat.active,
 .chat-list .private-chat:hover{
     background-color: #EAEBEB;
+}
+
+/* ------------------MAIN-CHAT---------------------------- */
+.main-chat{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-chat .main-chat-top{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #EAEAEA;
+    height: 45px;
+}
+
+.main-chat .main-chat-body{
+    flex-grow: 1;
+}
+
+.main-chat .main-chat-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #EAEAEA;
+    height: 45px;
+    gap: 20px;
+    color: #6A7375;
+}
+
+.main-chat-text input{
+    flex-grow: 1;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
 }

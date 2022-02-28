@@ -3,6 +3,8 @@ const app = new Vue({
     el : '#app',
 
     data : {
+        userImage : 'img/R.jpg',
+        userName : 'Alessandro',
         contacts: [
             {
             name: 'Michele',
@@ -87,8 +89,7 @@ const app = new Vue({
                 }
             ],
             }
-        ],
-        // lunghezza : this.contacts[0].messages.length - 1,       
+        ],  
     },
 
     methods : {
