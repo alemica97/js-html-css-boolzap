@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>BoolZap</title>
@@ -15,7 +16,32 @@
 
     <div id="app">
         <aside class="sidebar">
-
+            <div class="sidebar-top">
+                <div class="profile">
+                    <div class="img-wrapper">
+                        <img src="img/R.jpg" alt="">
+                    </div>
+                    <span>Alessandro</span>
+                </div>
+                <div class="chat-icons">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="sidebar-notifications">
+                <div class="notifications-icon">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div class="notifications-description">
+                    <span>Ricevi notifiche di nuovi utenti</span>
+                    <span>Attiva notifiche desktop</span>
+                </div>
+                
+            </div>
+            <div class="sidebar-input">
+                <input type="search" id="search" placeholder=" Cerca o inizia una nuova chat">
+            </div>
         </aside>
         <div class="main-chat">
 
