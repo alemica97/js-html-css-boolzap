@@ -42,6 +42,22 @@
             <div class="sidebar-input">
                 <input type="search" id="search" placeholder=" Cerca o inizia una nuova chat">
             </div>
+            <div>
+                <ul  class="chat-list">
+                    <li v-for="chat in contacts" class="private-chat">
+                        <div class="img-wrapper">
+                            <img v-bind:src="chat.avatar">
+                        </div>
+                        <div class="chat-description">
+                            <span>{{ chat.name }}</span>
+                            <span>{{ chat.messages[chat.messages.length - 1].text }}</span>
+                        </div>
+                        <div class="message-data">
+                            <span>{{ chat.messages[chat.messages.length - 1].date }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </aside>
         <div class="main-chat">
 

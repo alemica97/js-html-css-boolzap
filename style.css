@@ -59,7 +59,7 @@ img{
     color: #B1B1B1;
 }
 
-.profile .img-wrapper, .sidebar .notifications-icon{
+.img-wrapper, .sidebar .notifications-icon{
     width: 35px;
     height: 35px;
     border-radius: 100%;
@@ -115,4 +115,46 @@ img{
     background-position: 10px 50%;
     background-size: 15px;
     padding-left: 40px;
+}
+
+.sidebar .chat-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.chat-list .private-chat{
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 5px 0 1px;
+    position: relative;
+}
+
+.private-chat .chat-description{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.private-chat .chat-description > span{
+    display: block;
+}
+
+.private-chat .chat-description span:nth-child(2){
+    color: #828F95;
+}
+
+.private-chat .message-data{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #828F95;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.chat-list .private-chat.active,
+.chat-list .private-chat:hover{
+    background-color: #EAEBEB;
 }
