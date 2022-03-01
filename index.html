@@ -46,7 +46,7 @@
                 <ul  class="chat-list">
                     <li v-for="(chat, index) in contacts" 
                         class="private-chat" 
-                        @click="activeIndex = index">
+                        @click="activeIndex = index; stopReply;">
                         
                         <div class="img-wrapper">
                             <img v-bind:src="chat.avatar">
@@ -78,7 +78,7 @@
             </div>
             <div class="main-chat-body">
                 <div v-for="(element, i) in contacts[activeIndex].messages"
-                    v-bind:class="contacts[activeIndex].messages[i].status == 'sent' ? 'message sent' : 'message received'" >
+                    v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'" >
                     <span>{{ element.text }}</span>
                 </div>
             </div>
@@ -86,7 +86,8 @@
                 <div class="emoticon-icon">
                     <i class="fa-solid fa-face-smile"></i>
                 </div>
-                <input type="text" id="text" placeholder="Scrivi un messaggio">
+                <input type="text" id="text" placeholder="Scrivi un messaggio" 
+                        v-model="toAdd" @keyup.enter="messageToAdd(activeIndex); messageReply(activeIndex);">
                 <div class="mic-icon">
                     <i class="fa-solid fa-microphone"></i>
                 </div>

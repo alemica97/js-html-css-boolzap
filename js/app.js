@@ -10,6 +10,10 @@ const app = new Vue({
 
         activeIndex : 0,
 
+        toAdd : '',
+
+        clearReply : undefined,
+
         contacts: [
             {
             name: 'Michele',
@@ -96,4 +100,35 @@ const app = new Vue({
             }
         ],  
     },
+
+    methods : {
+        //Questa funzione pusha dentro l'array messages quello che viene scritto nell'input 
+        //viene invocata premendo invio, una volta premuto invia il messaggio
+        messageToAdd : function(i){
+            if( this.toAdd !== ''){
+                this.contacts[i].messages.push( {
+                                                    date: '01/03/2022 18:00:30',
+                                                    text : this.toAdd,
+                                                    status : 'sent'
+                                                }
+                );
+            };
+            this.toAdd = '';
+        },
+        //questa funzione viene invocata quando si preme il tasto invio e manda una risposta automaticamente
+        messageReply : function(i){
+            this.clearReply = setTimeout(() => {
+                this.contacts[i].messages.push( {
+                                                    date: '01/03/2022 18:00:31',
+                                                    text : 'ok',
+                                                    status : 'received'
+                                                }
+                );
+            }, 1000);
+        },
+
+        stopReply : function(){
+            clearTimeout(this.clearReply);
+        }
+    }
 });

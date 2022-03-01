@@ -191,6 +191,7 @@ aside{
     justify-content: flex-start;
     padding: 20px;
     gap: 5px;
+    overflow-y: auto;
 }
 
 .main-chat .main-chat-text{
