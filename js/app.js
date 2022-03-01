@@ -7,6 +7,9 @@ const app = new Vue({
             userImage : 'img/R.jpg',
             userName : 'Alessandro',
         },
+
+        activeIndex : 0,
+
         contacts: [
             {
             name: 'Michele',
@@ -93,8 +96,4 @@ const app = new Vue({
             }
         ],  
     },
-
-    methods : {
-
-    }
 });

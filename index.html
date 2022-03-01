@@ -44,7 +44,10 @@
             </div>
             <div>
                 <ul  class="chat-list">
-                    <li v-for="chat in contacts" class="private-chat">
+                    <li v-for="(chat, index) in contacts" 
+                        class="private-chat" 
+                        @click="activeIndex = index">
+                        
                         <div class="img-wrapper">
                             <img v-bind:src="chat.avatar">
                         </div>
@@ -65,16 +68,16 @@
         <div class="main-chat">
             <div class="main-chat-top">
                 <div class="img-wrapper">
-                    <img src="img/user_1.jpg">
+                    <img v-bind:src="contacts[activeIndex].avatar">
                 </div>
                 <div class="active-chat-info">
-                    <h4>Michele</h4>
+                    <h4>{{ contacts[activeIndex].name }}</h4>
                     <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                     <span>Ultimo accesso oggi alle 21:00</span>
                 </div>
             </div>
             <div class="main-chat-body">
-                <div class="message sent">
+                <!-- <div class="message sent">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 </div>
                 <div class="message sent">
@@ -82,7 +85,7 @@
                 </div>
                 <div class="message received">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </div>
+                </div> -->
             </div>
             <div class="main-chat-text">
                 <div class="emoticon-icon">
