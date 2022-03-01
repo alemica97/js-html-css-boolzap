@@ -66,9 +66,17 @@ aside{
     color: #606165;
 }
 
-.img-wrapper, .sidebar .notifications-icon{
+.img-wrapper.small, .sidebar .notifications-icon{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.img-wrapper{
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
@@ -180,9 +188,17 @@ aside{
     gap: 12px;
 }
 
+.top-icons{
+    color: #606165;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
 .main-chat .main-chat-body{
     flex-grow: 1;
-    background-image: url(img/WA-light-BG.jpg);
+    background-image: url(img/bg-2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -198,11 +214,15 @@ aside{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 20px;
     background-color: #EAEAEA;
-    height: 45px;
+    color: #606165;
+    height: 60px;
     gap: 20px;
-    color: #6A7375;
+}
+
+.emoticon-icon i:first-child{
+    margin-right: 20px;
 }
 
 .main-chat-text input{
@@ -210,7 +230,7 @@ aside{
     padding: 0 20px;
     border: none;
     border-radius: 5px;
-    height: 30px;
+    height: 40px;
 }
 
 .message{
@@ -232,22 +252,14 @@ aside{
     align-self: flex-start;
 }
 
-/* .message.sent:first-child{
-    border-top-right-radius: 0;
-} */
-
-/* .message.received:first-child{
-    border-top-left-radius: 0;
-} */
-
-/* .message.received + .message.sent,
+.message.received + .message.sent,
 .message.sent + .message.message.received{
     margin-top: 20px;
-} */
+}
 
-/* .message.sent:first-child::before{
+.message.sent::before{
     content: '';
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     left: 100%;
@@ -256,13 +268,31 @@ aside{
     border-bottom-color: transparent;
 }
 
-.message.received:first-child::before{
+.message.received::before{
     content: '';
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     right: 100%;
     border: 5px solid #FFFFFF;
     border-left-color: transparent;
     border-bottom-color: transparent;
-} */
+}
+
+.message.sent:first-child::before,
+.message.received:first-child::before,
+.message.received + .message.sent::before,
+.message.sent + .message.received::before{
+    display: block;
+}
+
+.message.sent:first-child,
+.message.received + .message.sent{
+    border-top-right-radius: 0;
+}
+
+.message.received:first-child,
+.message.sent + .message.received{
+    border-top-left-radius: 0;
+
+}

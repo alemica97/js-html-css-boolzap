@@ -18,7 +18,7 @@
         <aside class="sidebar">
             <div class="sidebar-top">
                 <div class="profile">
-                    <div class="img-wrapper">
+                    <div class="img-wrapper small">
                         <img v-bind:src="myAccount.userImage" alt="">
                     </div>
                     <span>{{ myAccount.userName }}</span>
@@ -66,8 +66,9 @@
         </aside>
 
         <div class="main-chat">
+
             <div class="main-chat-top">
-                <div class="img-wrapper">
+                <div class="img-wrapper small">
                     <img v-bind:src="contacts[activeIndex].avatar">
                 </div>
                 <div class="active-chat-info">
@@ -75,16 +76,23 @@
                     <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                     <span>Ultimo accesso oggi alle 21:00</span>
                 </div>
+                <div class="top-icons">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
             </div>
+
             <div class="main-chat-body">
                 <div v-for="(element, i) in contacts[activeIndex].messages"
                     v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'" >
                     <span>{{ element.text }}</span>
                 </div>
             </div>
+
             <div class="main-chat-text">
                 <div class="emoticon-icon">
-                    <i class="fa-solid fa-face-smile"></i>
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-paperclip"></i>
                 </div>
                 <input type="text" id="text" placeholder="Scrivi un messaggio" 
                         v-model="toAdd" @keyup.enter="messageToAdd(activeIndex); messageReply(activeIndex);">
