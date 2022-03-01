@@ -77,15 +77,10 @@
                 </div>
             </div>
             <div class="main-chat-body">
-                <!-- <div class="message sent">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <div v-for="(element, i) in contacts[activeIndex].messages"
+                    v-bind:class="contacts[activeIndex].messages[i].status == 'sent' ? 'message sent' : 'message received'" >
+                    <span>{{ element.text }}</span>
                 </div>
-                <div class="message sent">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </div>
-                <div class="message received">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </div> -->
             </div>
             <div class="main-chat-text">
                 <div class="emoticon-icon">
