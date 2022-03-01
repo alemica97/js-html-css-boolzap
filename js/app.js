@@ -3,8 +3,10 @@ const app = new Vue({
     el : '#app',
 
     data : {
-        userImage : 'img/R.jpg',
-        userName : 'Alessandro',
+        myAccount : {
+            userImage : 'img/R.jpg',
+            userName : 'Alessandro',
+        },
         contacts: [
             {
             name: 'Michele',

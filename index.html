@@ -19,9 +19,9 @@
             <div class="sidebar-top">
                 <div class="profile">
                     <div class="img-wrapper">
-                        <img v-bind:src="userImage" alt="">
+                        <img v-bind:src="myAccount.userImage" alt="">
                     </div>
-                    <span>{{ userName }}</span>
+                    <span>{{ myAccount.userName }}</span>
                 </div>
                 <div class="chat-icons">
                     <i class="fa-solid fa-circle-notch"></i>
@@ -34,7 +34,7 @@
                     <i class="fa-solid fa-bell-slash"></i>
                 </div>
                 <div class="notifications-description">
-                    <span>Ricevi notifiche di nuovi utenti</span>
+                    <h4>Ricevi notifiche di nuovi utenti</h4>
                     <span>Attiva notifiche desktop</span>
                 </div>
                 
@@ -49,7 +49,7 @@
                             <img v-bind:src="chat.avatar">
                         </div>
                         <div class="chat-description">
-                            <span>{{ chat.name }}</span>
+                            <h4>{{ chat.name }}</h4>
                             <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                             <span>{{ chat.messages[chat.messages.length - 1].text }}</span>
                         </div>
@@ -64,10 +64,25 @@
 
         <div class="main-chat">
             <div class="main-chat-top">
-
+                <div class="img-wrapper">
+                    <img src="img/user_1.jpg">
+                </div>
+                <div class="active-chat-info">
+                    <h4>Michele</h4>
+                    <!-- Prendo dall'array il testo dell'ultimo messaggio -->
+                    <span>Ultimo accesso oggi alle 21:00</span>
+                </div>
             </div>
             <div class="main-chat-body">
-
+                <div class="message sent">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </div>
+                <div class="message sent">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </div>
+                <div class="message received">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </div>
             </div>
             <div class="main-chat-text">
                 <div class="emoticon-icon">
