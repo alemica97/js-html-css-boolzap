@@ -145,11 +145,13 @@ const app = new Vue({
         stringCompare : function(){
             for(let i = 0; i < this.contacts.length; i++){
                 this.namePart = this.contacts[i].name.slice(0,this.searchName.length);
-                if(this.namePart !== (this.searchName.charAt(0).toUpperCase()+this.searchName.slice(1))){
+                if(this.namePart !== (this.searchName.charAt(0).toUpperCase()+this.searchName.slice(1)) &&
+                    this.searchName !== ''){
                     this.contacts[i].visible = false;
+                }else if(this.searchName == ''){
+                    this.contacts[i].visible = true;
                 }
-            }
-            
+            }   
         }
     }
 });
