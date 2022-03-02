@@ -40,13 +40,14 @@
                 
             </div>
             <div class="sidebar-input">
-                <input type="search" id="search" placeholder=" Cerca o inizia una nuova chat">
+                <input type="search" id="search" v-model="searchName" @keyup="stringCompare" placeholder=" Cerca o inizia una nuova chat">
             </div>
             <div>
                 <ul  class="chat-list">
                     <li v-for="(chat, index) in contacts" 
                         class="private-chat" 
-                        @click="activeIndex = index; stopReply;">
+                        @click="activeIndex = index; stopReply;"
+                        v-if="chat.visible">
                         
                         <div class="img-wrapper">
                             <img v-bind:src="chat.avatar">
@@ -58,7 +59,7 @@
                         </div>
                         <div class="message-data">
                             <!-- Prendo dall'array la data dell'ultimo messaggio -->
-                            <span>{{ chat.messages[chat.messages.length - 1].date }}</span>
+                            <span>{{ onlyHours(chat.messages[chat.messages.length - 1].date) }}</span>
                         </div>
                     </li>
                 </ul>
@@ -86,6 +87,7 @@
                 <div v-for="(element, i) in contacts[activeIndex].messages"
                     v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'" >
                     <span>{{ element.text }}</span>
+                    <span>{{ onlyHours(element.date) }}</span>
                 </div>
             </div>
 

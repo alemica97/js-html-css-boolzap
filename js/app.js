@@ -14,6 +14,10 @@ const app = new Vue({
 
         clearReply : undefined,
 
+        searchName : '',
+
+        namePart : undefined,
+
         contacts: [
             {
             name: 'Michele',
@@ -129,6 +133,23 @@ const app = new Vue({
 
         stopReply : function(){
             clearTimeout(this.clearReply);
+        },
+
+        onlyHours : function(date){
+            const hour = date.split(' ')[1];
+            return hour.substring(0,5);
+        },
+        //faccio una funzione che compara ciò che scrivo nell'input con i nomi delle chat
+        //se non coincidono da alla proprietà visible false, così tramite il 
+        //v-if fatti sui contatto (<li>) mostrerà solo quelli con visible == true
+        stringCompare : function(){
+            for(let i = 0; i < this.contacts.length; i++){
+                this.namePart = this.contacts[i].name.slice(0,this.searchName.length);
+                if(this.namePart !== (this.searchName.charAt(0).toUpperCase()+this.searchName.slice(1))){
+                    this.contacts[i].visible = false;
+                }
+            }
+            
         }
     }
 });

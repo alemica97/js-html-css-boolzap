@@ -234,12 +234,20 @@ aside{
 }
 
 .message{
-    padding: 8px 10px;
+    padding: 8px 30px 15px 10px; 
     max-width: 70%;
     border-radius: 8px;
     filter: drop-shadow( 0 1px 2px #ccc );
     font-size: 14px;
     position: relative;
+}
+
+.message span:last-child{
+    font-size: 8px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
 }
 
 .message.sent{
@@ -296,3 +304,7 @@ aside{
     border-top-left-radius: 0;
 
 }
+
+/* .disable{
+    display: none;
+} */
