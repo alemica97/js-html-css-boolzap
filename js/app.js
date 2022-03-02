@@ -22,6 +22,8 @@ const app = new Vue({
 
         activeMessage : null,
 
+        darkMode : false,
+
         contacts: [
             {
             name: 'Michele',
@@ -105,6 +107,55 @@ const app = new Vue({
                 status: 'received'
                 }
             ],
+            },
+            {
+            name: 'Michela',
+            avatar: 'img/user_5.png',
+            visible: true,
+            messages: [
+                {
+                date: '10/01/2020 15:30:55',
+                text: 'ciao',
+                status: 'sent'
+                },
+                {
+                date: '10/01/2020 15:30:56',
+                text: 'come stai?',
+                status: 'sent'
+                },
+                {
+                date: '10/01/2020 15:50:00',
+                text: 'tutto bene 😊',
+                status: 'received'
+                }
+            ],
+            },
+            {
+            name: 'Luigi',
+            avatar: 'img/user_6.jpg',
+            visible: true,
+            messages: [
+                {
+                date: '28/03/2020 10:10:40',
+                text: 'Ciao Luigi, come va?',
+                status: 'received'
+                },
+                {
+                date: '28/03/2020 10:20:10',
+                text: 'Ei, tutto bene.',
+                status: 'sent'
+                },
+                {
+                date: '28/03/2020 16:15:22',
+                text: 'Domani sera ci sei  per andare a mangiare il sushi?',
+                status: 'received'
+                },
+                {
+                date : '28/03/2020 16:30:22',
+                text : 'Siiii certo che ci sono 🍣💖',
+                status : 'sent'
+                }
+            ],
             }
         ], 
     },
@@ -116,7 +167,7 @@ const app = new Vue({
             const d = new Date();
             if( this.toAdd !== ''){
                 this.contacts[i].messages.push( {
-                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() }:${d.getSeconds()}`,
+                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() } ${d.getSeconds()}`,
                                                     text : this.toAdd,
                                                     status : 'sent'
                                                 }
@@ -129,7 +180,7 @@ const app = new Vue({
             const d = new Date();
             this.clearReply = setTimeout(() => {
                 this.contacts[i].messages.push( {
-                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() }:${d.getSeconds()}`,
+                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() } ${d.getSeconds()}`,
                                                     text : 'ok',
                                                     status : 'received'
                                                 }
@@ -167,9 +218,6 @@ const app = new Vue({
                     this.contacts[i].visible = true;
                 }
             }   
-        },
-        deleteMessage : function(){
-
         }
     }
 });

@@ -15,49 +15,60 @@
 <body>
 
     <div id="app">
-        <aside class="sidebar">
-            <div class="sidebar-top">
+        <aside class="sidebar" :class="darkMode == true ? 'is-dark' : ''">
+            <div class="sidebar-top"
+                :class="darkMode == true ? 'is-dark' : ''">
+
                 <div class="profile">
                     <div class="img-wrapper small">
                         <img v-bind:src="myAccount.userImage" alt="">
                     </div>
                     <span>{{ myAccount.userName }}</span>
                 </div>
-                <div class="chat-icons">
+
+                <div class="chat-icons"
+                    :class="darkMode == true ? 'is-dark' : ''">
+                    <div class="enable-dark-mode" @click="darkMode = !darkMode">
+                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
                     <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
                 </div>
+
             </div>
-            <div class="sidebar-notifications">
-                <div class="notifications-icon">
+            <div class="sidebar-notifications"
+                :class="darkMode == true ? 'is-dark' : ''">
+                <div class="notifications-icon" :class="darkMode == true ? 'is-dark' : ''">
                     <i class="fa-solid fa-bell-slash"></i>
                 </div>
-                <div class="notifications-description">
+                <div class="notifications-description" :class="darkMode == true ? 'is-dark' : ''">
                     <h4>Ricevi notifiche di nuovi utenti</h4>
                     <span>Attiva notifiche desktop</span>
                 </div>
                 
             </div>
-            <div class="sidebar-input">
+            <div class="sidebar-input" :class="darkMode == true ? 'is-dark' : ''">
                 <input type="search" id="search" v-model="searchName" @keyup="stringCompare" placeholder=" Cerca o inizia una nuova chat">
             </div>
             <div>
-                <ul  class="chat-list">
+                <ul  class="chat-list" :class="darkMode == true ? 'is-dark' : ''">
                     <li v-for="(chat, index) in contacts" 
-                        class="private-chat" 
-                        @click="activeIndex = index; stopReply;"
+                        class="private-chat"
+                        :class="activeIndex == index ? 'active' : ''" 
+                        @click="(activeIndex = index); stopReply;"
                         v-if="chat.visible">
                         
                         <div class="img-wrapper">
                             <img v-bind:src="chat.avatar">
                         </div>
-                        <div class="chat-description">
+                        <div class="chat-description" :class="darkMode == true ? 'is-dark' : ''">
                             <h4>{{ chat.name }}</h4>
                             <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                             <span>{{ chat.messages[chat.messages.length - 1].text }}</span>
                         </div>
-                        <div class="message-data">
+                        <div class="message-data" :class="darkMode == true ? 'is-dark' : ''">
                             <!-- Prendo dall'array la data dell'ultimo messaggio -->
                             <span>{{ onlyHours(chat.messages[chat.messages.length - 1].date) }}</span>
                         </div>
@@ -68,11 +79,11 @@
 
         <div class="main-chat">
 
-            <div class="main-chat-top">
+            <div class="main-chat-top" :class="darkMode == true ? 'is-dark' : ''">
                 <div class="img-wrapper small">
                     <img v-bind:src="contacts[activeIndex].avatar">
                 </div>
-                <div class="active-chat-info">
+                <div class="active-chat-info" :class="darkMode == true ? 'is-dark' : ''">
                     <h4>{{ contacts[activeIndex].name }}</h4>
                     <!-- Prendo dall'array il testo dell'ultimo messaggio -->
                     <span>Ultimo accesso oggi alle 21:00</span>
@@ -83,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="main-chat-body">
+            <div class="main-chat-body" :class="darkMode == true ? 'is-dark' : ''">
                 <div v-for="(element, i) in contacts[activeIndex].messages"
                     v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'"
                     v-if="element.status !== 'removed'">
@@ -97,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="main-chat-text">
+            <div class="main-chat-text" :class="darkMode == true ? 'is-dark' : ''">
                 <div class="emoticon-icon">
                     <i class="fa-regular fa-face-smile"></i>
                     <i class="fa-solid fa-paperclip"></i>
