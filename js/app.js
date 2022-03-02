@@ -16,6 +16,8 @@ const app = new Vue({
 
         searchName : '',
 
+        searchNameUpp : '',
+
         namePart : undefined,
 
         contacts: [
@@ -109,9 +111,10 @@ const app = new Vue({
         //Questa funzione pusha dentro l'array messages quello che viene scritto nell'input 
         //viene invocata premendo invio, una volta premuto invia il messaggio
         messageToAdd : function(i){
+            const d = new Date();
             if( this.toAdd !== ''){
                 this.contacts[i].messages.push( {
-                                                    date: '01/03/2022 18:00:30',
+                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() }:${d.getSeconds()}`,
                                                     text : this.toAdd,
                                                     status : 'sent'
                                                 }
@@ -121,9 +124,10 @@ const app = new Vue({
         },
         //questa funzione viene invocata quando si preme il tasto invio e manda una risposta automaticamente
         messageReply : function(i){
+            const d = new Date();
             this.clearReply = setTimeout(() => {
                 this.contacts[i].messages.push( {
-                                                    date: '01/03/2022 18:00:31',
+                                                    date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${ d.getMinutes() }:${d.getSeconds()}`,
                                                     text : 'ok',
                                                     status : 'received'
                                                 }
@@ -143,9 +147,12 @@ const app = new Vue({
         //se non coincidono da alla proprietà visible false, così tramite il 
         //v-if fatti sui contatto (<li>) mostrerà solo quelli con visible == true
         stringCompare : function(){
+
+            this.searchNameUpp = this.searchName.charAt(0).toUpperCase()+this.searchName.slice(1);
+
             for(let i = 0; i < this.contacts.length; i++){
                 this.namePart = this.contacts[i].name.slice(0,this.searchName.length);
-                if(this.namePart !== (this.searchName.charAt(0).toUpperCase()+this.searchName.slice(1)) &&
+                if( this.namePart !== ( this.searchNameUpp ) &&
                     this.searchName !== ''){
                     this.contacts[i].visible = false;
                 }else if(this.searchName == ''){
