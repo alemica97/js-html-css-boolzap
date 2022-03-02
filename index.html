@@ -85,9 +85,15 @@
 
             <div class="main-chat-body">
                 <div v-for="(element, i) in contacts[activeIndex].messages"
-                    v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'" >
+                    v-bind:class="element.status == 'sent' ? 'message sent' : 'message received'"
+                    v-if="element.status !== 'removed'">
                     <span>{{ element.text }}</span>
-                    <span>{{ onlyHours(element.date) }}</span>
+                    <span class="message-icon" @click="activeMessage = i"><i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="message-date">{{ onlyHours(element.date) }}</span>
+                    <div class="clear-message" :class="activeMessage == i ? 'active' : ''">
+                        <span>Message info</span>
+                        <span @click="messageToRemove(activeIndex, activeMessage)">Delete message</span>
+                    </div>
                 </div>
             </div>
 

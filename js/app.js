@@ -20,6 +20,8 @@ const app = new Vue({
 
         namePart : undefined,
 
+        activeMessage : null,
+
         contacts: [
             {
             name: 'Michele',
@@ -104,7 +106,7 @@ const app = new Vue({
                 }
             ],
             }
-        ],  
+        ], 
     },
 
     methods : {
@@ -135,6 +137,12 @@ const app = new Vue({
             }, 1000);
         },
 
+        messageToRemove : function(i, n){
+            const removed = this.contacts[i].messages.slice(n,n+1);
+            removed[0].status = 'removed';
+            console.log(removed);
+        },
+
         stopReply : function(){
             clearTimeout(this.clearReply);
         },
@@ -159,6 +167,9 @@ const app = new Vue({
                     this.contacts[i].visible = true;
                 }
             }   
+        },
+        deleteMessage : function(){
+
         }
     }
 });
